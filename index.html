@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bora Portfolio</title>
+    <meta
+      name="description"
+      content="Minimal editorial portfolio site for selected works, profile, and contact."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site">
+      <div class="news-ticker" aria-label="Studio ticker">
+        <div class="news-ticker-track">
+          <span>New Publication: Visual Archive</span>
+          <span>Selected Works 2026</span>
+          <span>Portfolio Index</span>
+          <span>Editorial Objects</span>
+          <span>New Publication: Visual Archive</span>
+          <span>Selected Works 2026</span>
+          <span>Portfolio Index</span>
+          <span>Editorial Objects</span>
+        </div>
+      </div>
+
+      <main>
+        <section id="intro" class="intro-grid">
+          <div class="headline-block">
+            <h1 id="typed-hero" data-text="New Visual&#10;Portfolio&#10;Practice">
+              New Visual
+              <br />
+              Portfolio
+              <br />
+              Practice
+            </h1>
+          </div>
+
+          <div class="profile-copy" id="profile">
+            <p>
+              Independent designer building visual systems, websites, printed
+              matter, and presentation formats with a focus on typography,
+              pacing, and clean structure.
+            </p>
+            <p>
+              Available for freelance commissions, brand work, portfolio
+              direction, and editorial web design.
+            </p>
+            <div class="profile-links">
+              <a href="mailto:borastudio@example.com">Email</a>
+              <a href="https://instagram.com" target="_blank" rel="noreferrer">
+                Instagram
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="meta-grid">
+          <div class="meta-item">
+            <p class="meta-label">Overview</p>
+            <p>
+              Minimal portfolio layout built around oversized headlines, compact
+              columns, and image-led project presentation.
+            </p>
+          </div>
+          <div class="meta-item">
+            <p class="meta-label">Focus</p>
+            <p>
+              Web design, visual direction, typography systems, pitch decks, and
+              editorial composition.
+            </p>
+          </div>
+          <div class="meta-item">
+            <p class="meta-label">Format</p>
+            <p>
+              Selected project images, short descriptions, and a contact section
+              designed for direct outreach.
+            </p>
+          </div>
+          <div class="meta-rule">
+            <span>Education</span>
+          </div>
+          <div class="meta-list">
+            <p>Visual Communication Practice</p>
+            <p>Independent Study Program</p>
+            <p>2022 - 2024</p>
+          </div>
+        </section>
+
+        <section id="works" class="works-layout">
+          <div class="section-number">1</div>
+          <div class="works-copy">
+            <p class="meta-label">Selected Works</p>
+            <h2>Three projects presented in a tighter editorial structure.</h2>
+          </div>
+          <div class="works-text">
+            <p class="works-year">2026</p>
+            <p>
+              Project pages can follow the same template: strong title, one or
+              two images, short process summary, and compact credits.
+            </p>
+          </div>
+        </section>
+
+        <section class="project-grid immersive-index" id="index">
+          <div class="portfolio-grid" id="portfolio-grid" aria-live="polite"></div>
+
+          <aside class="spotlight-panel" id="spotlight-panel">
+            <div class="spotlight-head">
+              <p class="spotlight-kicker" id="spotlight-kicker">00</p>
+            </div>
+
+            <div class="spotlight-body" id="spotlight-body">
+              <div class="spotlight-title-block">
+                <p class="spotlight-label">Project Name</p>
+                <p class="spotlight-title" id="spotlight-title">Selected Works</p>
+              </div>
+
+              <div class="spotlight-info-grid">
+                <div class="spotlight-info-item">
+                  <p class="spotlight-label">Year</p>
+                  <p class="spotlight-value" id="spotlight-year">2025</p>
+                </div>
+                <div class="spotlight-info-item">
+                  <p class="spotlight-label">Role</p>
+                  <p class="spotlight-value" id="spotlight-role">Lead Designer</p>
+                </div>
+                <div class="spotlight-info-item">
+                  <p class="spotlight-label">Project ID</p>
+                  <p class="spotlight-value" id="spotlight-number">00</p>
+                </div>
+                <div class="spotlight-info-item">
+                  <p class="spotlight-label">Category</p>
+                  <p class="spotlight-value" id="spotlight-tag">Archive Entry</p>
+                </div>
+              </div>
+
+              <div class="spotlight-description-block">
+                <p class="spotlight-label">Description</p>
+                <p class="spotlight-text" id="spotlight-text">
+                  Click an image to expand it. A short project summary will
+                  appear here with editorial-style placeholder information.
+                </p>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="detail-grid">
+          <div class="section-number">2</div>
+          <div class="detail-column">
+            <p class="meta-label">Current Notes</p>
+            <p>
+              This site is structured to stay flexible: project names, years,
+              roles, images, and external links can be swapped without changing
+              the layout system.
+            </p>
+          </div>
+          <div class="detail-column">
+            <p class="meta-label">Project Template</p>
+            <p>
+              Each project can open into a dedicated detail page with one large
+              visual, one supporting image, a short text block, and credits.
+            </p>
+          </div>
+          <div class="detail-rule">
+            <span>Employment</span>
+          </div>
+          <div class="detail-list">
+            <p>Freelance Visual Designer</p>
+            <p>Selected commissions and self-initiated projects</p>
+            <p>2024 - Present</p>
+          </div>
+        </section>
+
+        <section class="image-band" aria-label="Featured image strip">
+          <div class="band-copy">
+            <p class="meta-label">Image Sequence</p>
+            <p>
+              All images below are loaded from the portfolio folder and arranged
+              in ascending numeric order.
+            </p>
+          </div>
+        </section>
+
+        <section id="contact" class="contact-grid">
+          <div class="section-number">3</div>
+          <div class="contact-copy">
+            <p class="meta-label">Contact</p>
+            <h2>Open for commissions, collaborations, and portfolio inquiries.</h2>
+          </div>
+          <form
+            class="contact-form"
+            action="mailto:borastudio@example.com"
+            method="post"
+            enctype="text/plain"
+          >
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" placeholder="Your name" required />
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" placeholder="Your email" required />
+            </label>
+            <label>
+              <span>Message</span>
+              <textarea
+                name="message"
+                rows="5"
+                placeholder="Tell me about the project, timeline, and context."
+                required
+              ></textarea>
+            </label>
+            <button type="submit">Send</button>
+          </form>
+        </section>
+
+        <footer class="archive-footer" id="archive-footer">
+          <div class="archive-table">
+            <div class="archive-row archive-row-head">
+              <p>↑ Title</p>
+              <p>Type</p>
+              <p>Designer</p>
+            </div>
+            <div id="archive-table-body"></div>
+          </div>
+        </footer>
+      </main>
+
+      <nav class="bottom-marquee-nav" aria-label="Bottom navigation">
+        <a href="#intro">Bora Portfolio</a>
+        <span>/</span>
+        <a href="#works">Selected Works</a>
+        <span>/</span>
+        <a href="#index">Project Index</a>
+        <span>/</span>
+        <a href="#profile">Profile</a>
+        <span>/</span>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
