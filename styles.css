@@ -443,11 +443,26 @@ main {
 }
 
 .spotlight-panel.is-empty .spotlight-body {
-  display: block;
+  display: grid;
+  align-content: space-between;
+  min-height: min(64vh, 640px);
 }
 
 .spotlight-panel.is-empty .spotlight-title-block {
   display: block;
+}
+
+.spotlight-empty-topline {
+  display: none;
+}
+
+.spotlight-panel.is-empty .spotlight-empty-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 14px;
+  line-height: 1;
 }
 
 .spotlight-panel.is-empty .spotlight-title {
