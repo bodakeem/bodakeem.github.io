@@ -3,6 +3,7 @@ const portfolioGrid = document.querySelector("#portfolio-grid");
 const immersiveIndex = document.querySelector(".immersive-index");
 const typedHero = document.querySelector("#typed-hero");
 const spotlightPanel = document.querySelector("#spotlight-panel");
+const spotlightClose = document.querySelector("#spotlight-close");
 const spotlightKicker = document.querySelector("#spotlight-kicker");
 const spotlightTitle = document.querySelector("#spotlight-title");
 const spotlightText = document.querySelector("#spotlight-text");
@@ -254,6 +255,7 @@ const startHeroTyping = () => {
 
 const setSpotlightContent = (fileName) => {
   if (
+    !spotlightPanel ||
     !spotlightKicker ||
     !spotlightTitle ||
     !spotlightText ||
@@ -268,6 +270,7 @@ const setSpotlightContent = (fileName) => {
   const meta = getProjectMeta(fileName);
   const projectNumber = getProjectNumberLabel(fileName);
 
+  spotlightPanel.classList.remove("is-empty");
   spotlightKicker.textContent = projectNumber;
   spotlightTitle.textContent = getTranslatedTitle(fileName);
   spotlightText.textContent = getProjectCopy(fileName);
@@ -277,7 +280,30 @@ const setSpotlightContent = (fileName) => {
   spotlightRole.textContent = meta.role;
 };
 
+const resetSpotlightContent = () => {
+  if (!spotlightPanel || !spotlightTitle) {
+    return;
+  }
+
+  spotlightPanel.classList.add("is-empty");
+  spotlightTitle.innerHTML = "Selected<br />Works";
+};
+
 let selectedItem = null;
+const isMobileViewport = () => window.matchMedia("(max-width: 720px)").matches;
+
+const closeSelectedItem = () => {
+  if (!selectedItem) {
+    return;
+  }
+
+  selectedItem.classList.remove("is-selected");
+  immersiveIndex?.classList.remove("is-focus-mode");
+  immersiveIndex?.classList.remove("has-selection");
+  document.body.classList.remove("has-mobile-popup");
+  selectedItem = null;
+  resetSpotlightContent();
+};
 
 const selectItem = (item, imagePath) => {
   if (selectedItem && selectedItem !== item) {
@@ -287,16 +313,14 @@ const selectItem = (item, imagePath) => {
   const isAlreadySelected = item.classList.contains("is-selected");
 
   if (isAlreadySelected) {
-    item.classList.remove("is-selected");
-    immersiveIndex?.classList.remove("is-focus-mode");
-    immersiveIndex?.classList.remove("has-selection");
-    selectedItem = null;
+    closeSelectedItem();
     return;
   }
 
   item.classList.add("is-selected");
   immersiveIndex?.classList.add("is-focus-mode");
   immersiveIndex?.classList.add("has-selection");
+  document.body.classList.toggle("has-mobile-popup", isMobileViewport());
   selectedItem = item;
   setSpotlightContent(imagePath);
 };
@@ -400,3 +424,39 @@ navLinks.forEach((link) => {
 });
 
 startHeroTyping();
+resetSpotlightContent();
+
+window.addEventListener("resize", () => {
+  if (!isMobileViewport()) {
+    document.body.classList.remove("has-mobile-popup");
+    return;
+  }
+
+  document.body.classList.toggle(
+    "has-mobile-popup",
+    Boolean(selectedItem) && immersiveIndex?.classList.contains("has-selection")
+  );
+});
+
+spotlightClose?.addEventListener("click", () => {
+  closeSelectedItem();
+});
+
+document.addEventListener("click", (event) => {
+  if (!isMobileViewport() || !selectedItem || !spotlightPanel) {
+    return;
+  }
+
+  const target = event.target;
+
+  if (!(target instanceof Node)) {
+    return;
+  }
+
+  const clickedInsidePanel = spotlightPanel.contains(target);
+  const clickedSelectedItem = selectedItem.contains(target);
+
+  if (!clickedInsidePanel && !clickedSelectedItem) {
+    closeSelectedItem();
+  }
+});
